@@ -33,7 +33,7 @@ public class MessageController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<FalconMessageDTO> saveFalconMessage(@RequestBody FalconMessageDTO message) {
+	public ResponseEntity<FalconMessageDTO> saveFalconMessage(@RequestBody(required = false) FalconMessageDTO message) {
 		FalconMessageDTO output = RedisConverter.falconMessageEntiytTo2Dto(falconMessageService.saveFalconMessage(message));
 		return new ResponseEntity<>(output, HttpStatus.OK);
 	}

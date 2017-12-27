@@ -4,7 +4,6 @@ import java.util.Date;
 
 import org.springframework.hateoas.ResourceSupport;
 
-import com.falcon.io.entity.FalconMessageEntity;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
