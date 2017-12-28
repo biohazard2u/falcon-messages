@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.falcon.io.entity.FalconMessageEntity;
+import com.falcon.io.entity.FalconChatUserEntity;
 
-public interface FalconMessagePostgreRepository extends CrudRepository<FalconMessageEntity, String> {
+public interface FalconMessagePostgreRepository extends CrudRepository<FalconChatUserEntity, String> {
 	
-	List<FalconMessageEntity> findByOwner(String owner);
+	List<FalconChatUserEntity> findByOwner(String owner);
 	
-	void saveFalconMessage(FalconMessageEntity falconMessage);
+	void saveFalconMessage(FalconChatUserEntity falconMessage);
 }

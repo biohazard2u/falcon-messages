@@ -13,28 +13,40 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.falcon.io.dto.FalconMessageDTO;
-import com.falcon.io.service.FalconMessageServiceable;
+import com.falcon.io.dto.ChatUserDTO;
+import com.falcon.io.service.FalconChatUserServiceable;
 import com.falcon.io.util.converter.redis.RedisConverter;
 
 @RestController
-@RequestMapping("message")
+@RequestMapping("user")
 public class MessageController {
 
 	@Autowired
-	FalconMessageServiceable falconMessageService;
+	FalconChatUserServiceable userService;
+
+	@RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<ChatUserDTO> saveFalconChatUser(@RequestBody(required = false) ChatUserDTO user) {
+		ChatUserDTO output = RedisConverter.falconChatUserEntiytTo2Dto(userService.saveFalconChatUser(user));
+		return new ResponseEntity<>(output, HttpStatus.OK);
+	}
 	
-	@RequestMapping(value = "/messagesByOwner", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<FalconMessageDTO>> findFalconMessageByOwner(@RequestParam(required = false) String owner) {
-		List<FalconMessageDTO> output = falconMessageService.findFalconMessageByOwner(owner).stream()
-                .map(RedisConverter::falconMessageEntiytTo2Dto)
+	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<ChatUserDTO>> findFalconChatUsers() {
+		List<ChatUserDTO> output = userService.findFalconChatUsers().stream()
+                .map(RedisConverter::falconChatUserEntiytTo2Dto)
                 .collect(Collectors.toList());
 		return new ResponseEntity<>(output, HttpStatus.OK);
 	}
-
-	@RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<FalconMessageDTO> saveFalconMessage(@RequestBody(required = false) FalconMessageDTO message) {
-		FalconMessageDTO output = RedisConverter.falconMessageEntiytTo2Dto(falconMessageService.saveFalconMessage(message));
+	
+	@RequestMapping(value = "/userById", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<ChatUserDTO> findFalconChatUserById(@RequestParam(required = false) String id) {
+		ChatUserDTO output = RedisConverter.falconChatUserEntiytTo2Dto(userService.findFalconChatUserById(id));
+		return new ResponseEntity<>(output, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/userByEmail", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<ChatUserDTO> findFalconChatUserByEmail(@RequestParam(required = false) String email) {
+		ChatUserDTO output = RedisConverter.falconChatUserEntiytTo2Dto(userService.findFalconChatUserByEmail(email));
 		return new ResponseEntity<>(output, HttpStatus.OK);
 	}
 }

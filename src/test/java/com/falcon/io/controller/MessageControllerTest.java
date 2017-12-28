@@ -18,7 +18,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import com.falcon.io.service.FalconMessageServiceable;
+import com.falcon.io.service.FalconChatUserServiceable;
 
 @RunWith(MockitoJUnitRunner.class)
 @SpringBootTest(classes = TestContext.class)
@@ -28,7 +28,7 @@ public class MessageControllerTest {
 	private MockMvc mockMvc;
 
 	@Mock
-	private FalconMessageServiceable messageService;
+	private FalconChatUserServiceable messageService;
 
 	@InjectMocks
 	private MessageController sut;

@@ -8,43 +8,46 @@ import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.falcon.io.dto.FalconMessageDTO;
-import com.falcon.io.entity.FalconMessageEntity;
+import com.falcon.io.dto.ChatUserDTO;
+import com.falcon.io.entity.FalconChatUserEntity;
 
 public class RedisConverterTest {
 
-	private static final int MESSAGE_ID = 1;
-	private static final String OWNER = "Owner test";
-	private static final String DESCRIPTION = "Description test";
+	private static final int USER_ID = 1;
+	private static final String EMAIL = "Email test";
+	private static final String PASSWORD = "Password test";
+	private static final String NICKNAME = "Nickname test";
 	private static final Date DATE = new Date();
 	
-	FalconMessageEntity falconMessageEntity;
-	FalconMessageDTO falconMessageDto;
+	FalconChatUserEntity falconUserEntity;
+	ChatUserDTO falconUserDto;
 	
 	@Before
 	public void setUp(){
-		falconMessageEntity = new FalconMessageEntity();
-		falconMessageEntity.setMessageId(MESSAGE_ID);
-		falconMessageEntity.setOwner(OWNER);
-		falconMessageEntity.setMessageDescription(DESCRIPTION);
-		falconMessageEntity.setDate(DATE);
+		falconUserEntity = new FalconChatUserEntity();
+		falconUserEntity.setUserId(USER_ID);
+		falconUserEntity.setEmail(EMAIL);
+		falconUserEntity.setPassword(PASSWORD);
+		falconUserEntity.setNickName(NICKNAME);
+		falconUserEntity.setDate(DATE);
 		
-		falconMessageDto = new FalconMessageDTO();
-		falconMessageDto.setMessageId(MESSAGE_ID);
-		falconMessageDto.setOwner(OWNER);
-		falconMessageDto.setMessageDescription(DESCRIPTION);
-		falconMessageDto.setDate(DATE);
+		falconUserDto = new ChatUserDTO();
+		falconUserDto.setUserId(USER_ID);
+		falconUserDto.setEmail(EMAIL);
+		falconUserDto.setPassword(PASSWORD);
+		falconUserDto.setNickName(NICKNAME);
+		falconUserDto.setDate(DATE);
 	}
 
 	@Test
-	public void falconMessageEntiytTo2Dto_returnsRightObject() {
-		FalconMessageDTO actual = RedisConverter.falconMessageEntiytTo2Dto(falconMessageEntity);
-		assertThat(actual, samePropertyValuesAs(falconMessageDto));
+	public void falconChatUserEntiytTo2Dto_returnsRightObject() {
+		ChatUserDTO actual = RedisConverter.falconChatUserEntiytTo2Dto(falconUserEntity);
+		assertThat(actual, samePropertyValuesAs(falconUserDto));
 	}
 
 	@Test
 	public void falconMessageDtoToEntity_returnsRightObject() {
-		FalconMessageEntity actual = RedisConverter.falconMessageDtoToEntity(falconMessageDto);
-		assertThat(actual, samePropertyValuesAs(falconMessageEntity));
+		FalconChatUserEntity actual = RedisConverter.falconChatUserDtoToEntity(falconUserDto);
+		assertThat(actual, samePropertyValuesAs(falconUserEntity));
 	}
 }

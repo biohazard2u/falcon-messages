@@ -17,9 +17,9 @@ import org.mockito.Mockito;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import com.falcon.io.dto.FalconMessageDTO;
-import com.falcon.io.entity.FalconMessageEntity;
-import com.falcon.io.repository.redis.FalconMessageRedisRepository;
+import com.falcon.io.dto.ChatUserDTO;
+import com.falcon.io.entity.FalconChatUserEntity;
+import com.falcon.io.repository.redis.FalconChatUserRedisRepository;
 
 @RunWith(MockitoJUnitRunner.class)
 public class FalconMessageServiceTest {
@@ -30,42 +30,44 @@ public class FalconMessageServiceTest {
 	private static final Date DATE = new Date();
 
 	@InjectMocks
-	private FalconMessageService sut;
+	private FalconChatUserService sut;
 
 	@Mock
-	private FalconMessageRedisRepository falconMessageRedisRepository;
+	private FalconChatUserRedisRepository falconMessageRedisRepository;
 
-	FalconMessageEntity falconMessageEntity;
-	FalconMessageDTO falconMessageDto;
+	FalconChatUserEntity falconMessageEntity;
+	ChatUserDTO falconMessageDto;
 
 	@Before
 	public void setUp() {
-		sut = new FalconMessageService();
+		sut = new FalconChatUserService();
 
-		falconMessageEntity = new FalconMessageEntity();
-		falconMessageEntity.setMessageId(MESSAGE_ID);
-		falconMessageEntity.setOwner(OWNER);
-		falconMessageEntity.setMessageDescription(DESCRIPTION);
+		falconMessageEntity = new FalconChatUserEntity();
+		falconMessageEntity.setUserId(MESSAGE_ID);
+		falconMessageEntity.setEmail(DESCRIPTION);
+		falconMessageEntity.setPassword(OWNER);
+		falconMessageEntity.setNickName(DESCRIPTION);
 		falconMessageEntity.setDate(DATE);
 
-		falconMessageDto = new FalconMessageDTO();
-		falconMessageDto.setMessageId(MESSAGE_ID);
-		falconMessageDto.setOwner(OWNER);
-		falconMessageDto.setMessageDescription(DESCRIPTION);
+		falconMessageDto = new ChatUserDTO();
+		falconMessageDto.setUserId(MESSAGE_ID);
+		falconMessageDto.setEmail(OWNER);
+		falconMessageDto.setPassword(DESCRIPTION);
+		falconMessageDto.setNickName(DESCRIPTION);
 		falconMessageDto.setDate(DATE);
 	}
 
 	@Ignore
 	@Test
 	public void findFalconMessageByOwner() {
-		List<FalconMessageEntity> falconMessageEntities = new ArrayList<>();
+		List<FalconChatUserEntity> falconMessageEntities = new ArrayList<>();
 		falconMessageEntities.add(falconMessageEntity);
 
-		doReturn(falconMessageEntities).when(falconMessageRedisRepository).findByOwner(OWNER);
+		//doReturn(falconMessageEntities).when(falconMessageRedisRepository).findByOwner(OWNER);
 
-		List<FalconMessageEntity> actual = sut.findFalconMessageByOwner(OWNER);
+		//List<FalconChatUserEntity> actual = sut.findFalconChatUserById(OWNER);
 
-		assertThat(actual, samePropertyValuesAs(falconMessageEntities));
+		//assertThat(actual, samePropertyValuesAs(falconMessageEntities));
 	}
 
 //	@Test

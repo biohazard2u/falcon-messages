@@ -11,17 +11,20 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@RedisHash("message")
-public class FalconMessageEntity {
+@RedisHash("user")
+public class FalconChatUserEntity {
 
 	@Id
-	Integer messageId;
+	Integer userId;
 	
 	@Indexed
-	String owner;
+	String email;
 	
 	@Indexed
-	String messageDescription;
+	String nickName;
+	
+	@Indexed
+	String password;
 	
 	@Indexed
 	Date date;

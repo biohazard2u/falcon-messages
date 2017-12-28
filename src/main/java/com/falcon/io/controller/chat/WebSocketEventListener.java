@@ -1,4 +1,4 @@
-package com.falcon.io.controller;
+package com.falcon.io.controller.chat;
 
 import com.falcon.io.dto.ChatMessage;
 import org.slf4j.Logger;
