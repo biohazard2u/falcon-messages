@@ -1,6 +1,4 @@
-####################################
-#### Falcon.io Coding Exercise  ####
-####################################
+# Falcon.io Coding Exercise
 This task is meant to verify the candidate’s understanding of different concepts (REST, Messaging, Websockets) 
 and show the pragmatic approach the candidate has in delivering software solutions. 
 The completion is estimated to 20 hours of work, and we expect to have a working submission within a week from you start.
@@ -30,28 +28,26 @@ Your solution reflects a sense of quality you would be confident in releasing to
 Documentation is applied to code / repository describing intent and purpose, as well as complicated / non obvious choices in the implementation
 
 
+## Solution (working project...)
+ - The main core of the app is a chat coded with websockets.
+ - Redis db is used to track all users accesing the chat.
+ - Postgre db is used to mantain a backup of all messages
 
-################################
-### Running the application  ###
-################################
+## Running the application
 This is an Springboot application - REST microservice.
+ - Start all docker containers docker-compose...
  - To build the application do: mvn clean install
  - To run the application do: mvn spring-boot:run
- - The app has been set with swagger, to try the app just go to: http://localhost:8081/falcon-message-service/swagger-ui.html
+ - The app has been set with swagger, to try the app just go to: http://localhost:8081/swagger-ui.html
  	JSON examples can be seen in swagger.
- - Library used is: api.ideal-postcodes.co.uk
+ - Chat on http://localhost:8081/
  	
  
  
+## Example
  
-################
-### Example  ###
-################
- 
-REQUEST:
-	http://localhost:8080/postcode?postcode=W6%200LG
+### REQUEST:
 	
-RESPONSE:
-	{
-		"address": "5-17 Hammersmith Grove"
-	}
+	
+### RESPONSE:
+	
