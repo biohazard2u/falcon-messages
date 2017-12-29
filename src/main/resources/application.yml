@@ -1,3 +1,11 @@
 server:
   port: 8081
   contextPath: /falcon-message-service
+  
+spring:
+  datasource:
+    url: jdbc:postgresql://db:5432/sample
+    username: sample
+    password: sample
+  jpa:
+    generate-ddl: true

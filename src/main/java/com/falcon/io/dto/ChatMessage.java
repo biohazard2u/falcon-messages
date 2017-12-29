@@ -1,6 +1,7 @@
 package com.falcon.io.dto;
 
 public class ChatMessage {
+	
     private MessageType type;
     private String content;
     private String sender;
