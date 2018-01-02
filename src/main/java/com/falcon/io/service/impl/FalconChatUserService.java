@@ -9,20 +9,20 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.falcon.io.dto.ChatUserDTO;
 import com.falcon.io.entity.FalconChatUserEntity;
-import com.falcon.io.repository.redis.FalconChatUserRedisRepository;
+import com.falcon.io.repository.redis.FalconChatUserRepository;
 import com.falcon.io.service.FalconChatUserServiceable;
-import com.falcon.io.util.converter.redis.RedisConverter;
+import com.falcon.io.util.converter.ChatUserConverter;
 
 @Service
 @Transactional
 public class FalconChatUserService implements FalconChatUserServiceable {
 
 	@Autowired
-	FalconChatUserRedisRepository falconMessageRedisRepository;
+	FalconChatUserRepository falconMessageRedisRepository;
 	
 	@Override
 	public FalconChatUserEntity saveFalconChatUser(ChatUserDTO falconMessageDto) {
-		FalconChatUserEntity falconMessageEntity = RedisConverter.falconChatUserDtoToEntity(falconMessageDto);
+		FalconChatUserEntity falconMessageEntity = ChatUserConverter.falconChatUserDtoToEntity(falconMessageDto);
 		falconMessageRedisRepository.save(falconMessageEntity);
 		return falconMessageEntity;
 	}

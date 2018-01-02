@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.falcon.io.entity.FalconChatUserEntity;
 
 @Repository
-public interface FalconChatUserRedisRepository extends CrudRepository<FalconChatUserEntity, Integer> {
+public interface FalconChatUserRepository extends CrudRepository<FalconChatUserEntity, Integer> {
 
 	void saveFalconChatUser(FalconChatUserEntity falconUser);
 	

@@ -19,7 +19,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import com.falcon.io.dto.ChatUserDTO;
 import com.falcon.io.entity.FalconChatUserEntity;
-import com.falcon.io.repository.redis.FalconChatUserRedisRepository;
+import com.falcon.io.repository.redis.FalconChatUserRepository;
 
 @RunWith(MockitoJUnitRunner.class)
 public class FalconMessageServiceTest {
@@ -33,7 +33,7 @@ public class FalconMessageServiceTest {
 	private FalconChatUserService sut;
 
 	@Mock
-	private FalconChatUserRedisRepository falconMessageRedisRepository;
+	private FalconChatUserRepository falconMessageRedisRepository;
 
 	FalconChatUserEntity falconMessageEntity;
 	ChatUserDTO falconMessageDto;

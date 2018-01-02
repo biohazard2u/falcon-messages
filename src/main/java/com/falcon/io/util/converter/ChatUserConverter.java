@@ -1,11 +1,11 @@
-package com.falcon.io.util.converter.redis;
+package com.falcon.io.util.converter;
 
 import com.falcon.io.dto.ChatUserDTO;
 import com.falcon.io.entity.FalconChatUserEntity;
 
-public class RedisConverter {
+public class ChatUserConverter {
 
-	private RedisConverter() {
+	private ChatUserConverter() {
 	}
 	
 	public static ChatUserDTO falconChatUserEntiytTo2Dto(FalconChatUserEntity falconChatUserEntity){

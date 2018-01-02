@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import com.falcon.io.dto.ChatUserDTO;
 import com.falcon.io.entity.FalconChatUserEntity;
+import com.falcon.io.util.converter.ChatUserConverter;
 
 public class RedisConverterTest {
 
@@ -41,13 +42,13 @@ public class RedisConverterTest {
 
 	@Test
 	public void falconChatUserEntiytTo2Dto_returnsRightObject() {
-		ChatUserDTO actual = RedisConverter.falconChatUserEntiytTo2Dto(falconUserEntity);
+		ChatUserDTO actual = ChatUserConverter.falconChatUserEntiytTo2Dto(falconUserEntity);
 		assertThat(actual, samePropertyValuesAs(falconUserDto));
 	}
 
 	@Test
 	public void falconMessageDtoToEntity_returnsRightObject() {
-		FalconChatUserEntity actual = RedisConverter.falconChatUserDtoToEntity(falconUserDto);
+		FalconChatUserEntity actual = ChatUserConverter.falconChatUserDtoToEntity(falconUserDto);
 		assertThat(actual, samePropertyValuesAs(falconUserEntity));
 	}
 }
