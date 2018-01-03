@@ -31,7 +31,7 @@ public class MessageControllerTest {
 	private FalconChatUserServiceable messageService;
 
 	@InjectMocks
-	private MessageController sut;
+	private UserController sut;
 
 	@Before
 	public void setUp() throws Exception {
