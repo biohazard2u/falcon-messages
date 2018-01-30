@@ -25,8 +25,8 @@ public class Application {
 	private static final String PROJECT_VERSION = "1.0";
 	private static final String PROJECT_TITLE = "falcon.io coding exercise";
 	private static final String PROJECT_DESCRIPTION = "This falcon.io coding exercise has been written by Marcos Zalacain";
-	private static final String DOCKER_HOST_IP = "192.168.99.100";	// Make this configurable.
-	private static final int REDIS_PORT = 6379;
+	//private static final String DOCKER_HOST_IP = "db_redis"; //"192.168.99.100";	// Make this configurable.
+	//private static final int REDIS_PORT = 6379;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
@@ -48,8 +48,8 @@ public class Application {
 	@Bean
 	JedisConnectionFactory jedisConnectionFactory() {
 	    JedisConnectionFactory jedisConFactory = new JedisConnectionFactory();
-	    jedisConFactory.setHostName(DOCKER_HOST_IP);
-	    jedisConFactory.setPort(REDIS_PORT);
+	    //jedisConFactory.setHostName(DOCKER_HOST_IP);
+	    //jedisConFactory.setPort(REDIS_PORT);
 	    jedisConFactory.setUsePool(true);
 	    return jedisConFactory;
 	}

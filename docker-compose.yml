@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
 
   falcon_app:
@@ -9,15 +9,23 @@ services:
     depends_on:
       - db_redis
       - db_postgres
+    networks: 
+      - net
 
   db_redis:
-    container_name: db_redis
+    #container_name: db_redis
     image: redis:alpine
     volumes:
       - ./redis.conf:/usr/local/etc/redis/redis.conf
+    #command: redis-server /usr/local/etc/redis/redis.conf
+    #command: "redis-server /data/redis.conf"
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
     ports:
-      - "6379"
-        
+      - "6379:6379"
+    networks: 
+      - net
+  
   db_postgres:
     container_name: db_postgres
     image: postgres:9.5
@@ -30,6 +38,11 @@ services:
       - PGDATA=/var/lib/postgresql/data/pgdata
     ports:
       - "5432:5432"
+    networks: 
+      - net
         
+networks:
+  net:
+
 volumes:
   db_postgres: {}
