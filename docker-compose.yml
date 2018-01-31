@@ -11,8 +11,6 @@ services:
       - db_postgres
     networks:
       - net
-    links:
-      - db_redis:db_redis
 
   db_redis:
     container_name: db_redis
