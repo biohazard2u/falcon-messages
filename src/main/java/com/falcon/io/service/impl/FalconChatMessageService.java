@@ -30,7 +30,7 @@ public class FalconChatMessageService implements FalconChatMessageServiceable {
 	@Override
 	public List<FalconChatMessageEntity> findFalconChatMessagesByUserId(Integer id) {
 		List<FalconChatMessageEntity> falconMessageEntities = new ArrayList<>();
-		falconChatMessageRepository.findAll().forEach(falconMessageEntities::add);
+		falconChatMessageRepository.findByUserId(id).forEach(falconMessageEntities::add);
         return falconMessageEntities;
 	}
 }

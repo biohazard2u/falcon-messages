@@ -33,6 +33,11 @@
 			<name>Spring GA Repository</name>
 			<url>https://repo.spring.io/plugins-release/</url>
 		</pluginRepository>
+		<pluginRepository>
+            <id>spring-releases</id>
+            <name>Spring Releases</name>
+            <url>https://repo.spring.io/libs-release</url>
+        </pluginRepository>
 	</pluginRepositories>
 
 	<repositories>
@@ -41,6 +46,11 @@
 			<name>Spring Milestone Repository</name>
 			<url>https://repo.spring.io/milestone</url>
 		</repository>
+		<repository>
+            <id>spring-releases</id>
+            <name>Spring Releases</name>
+            <url>https://repo.spring.io/libs-release</url>
+        </repository>
 	</repositories>
 
 	<dependencies>

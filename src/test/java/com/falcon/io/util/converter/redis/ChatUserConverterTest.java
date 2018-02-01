@@ -12,7 +12,7 @@ import com.falcon.io.dto.ChatUserDTO;
 import com.falcon.io.entity.FalconChatUserEntity;
 import com.falcon.io.util.converter.ChatUserConverter;
 
-public class RedisConverterTest {
+public class ChatUserConverterTest {
 
 	private static final int USER_ID = 1;
 	private static final String EMAIL = "Email test";
