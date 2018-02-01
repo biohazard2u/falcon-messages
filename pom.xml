@@ -24,7 +24,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.0.M1</version>
+		<version>1.5.10.RELEASE</version>
 	</parent>
 
 	<pluginRepositories>
@@ -66,8 +66,7 @@
 		<!-- Redis -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-redis</artifactId>
-			<version>1.4.4.RELEASE</version>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
 		</dependency>
 
 		<!-- Swagger -->
