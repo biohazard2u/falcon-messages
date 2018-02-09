@@ -28,26 +28,17 @@ Your solution reflects a sense of quality you would be confident in releasing to
 Documentation is applied to code / repository describing intent and purpose, as well as complicated / non obvious choices in the implementation
 
 
-## Solution (working project...)
+## Solution
  - The main core of the app is a chat coded with websockets.
  - Redis db is used to track all users accesing the chat.
  - Postgre db is used to mantain a backup of all messages
 
 ## Running the application
-This is an Springboot application - REST microservice.
- - Start all docker containers docker-compose...
- - To build the application do: mvn clean install
- - To run the application do: mvn spring-boot:run
- - The app has been set with swagger, to try the app just go to: http://localhost:8081/swagger-ui.html
- 	JSON examples can be seen in swagger.
- - Chat on http://localhost:8081/
- 	
- 
- 
-## Example
- 
-### REQUEST:
-	
-	
-### RESPONSE:
-	
+ - download and build the project with maven
+ - Start all docker containers with docker-compose up
+
+## Result
+### Websockets:
+go to: http://localhost:8081/	
+### Postgress & redis endpoints:
+go to: http://localhost:8081/swagger-ui.html 
