@@ -1,9 +1,9 @@
 # Falcon.io Coding Exercise
 This is a personal project to practice with the following tecnologies:
-	- docker-compose
-	- Websockets
-	- Postgress
-	- Redis
+ - docker-compose
+ - Websockets
+ - Postgress
+ - Redis
 
 ## Solution
  - The main core of the app is a chat coded with websockets.
